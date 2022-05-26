@@ -1,0 +1,35 @@
+<h1>Metrics</h1>
+
+<h3><%= link_to( "New Metric", new_metric_path) %></h3>
+
+<%= line_chart @metrics %>
+
+<div class="row">
+    <div class="col">
+        <%= form_with method: :get, class: "row gy-2 gx-3 align-items-center" do |form| %>
+            <div class="col-auto">
+                <%= form.label :from %>
+            </div>
+            <div class="col-auto">
+                <%= form.datetime_field :from, class: "form-control", value: params[:from] %>
+            </div>
+
+            <div class="col-auto">
+                <%= form.label :to %>
+            </div>
+            <div class="col-auto">
+                <%= form.datetime_field :to, class: "form-control", value: params[:to] %>
+            </div>
+
+            <div class="col-auto">
+                <%= form.label :group_by %>
+            </div>
+            <div class="col-auto">
+                <%= form.select :group_by, [["Minutes", "minute"], ["Hours", "hour"], ["Days", "day"]], class: "form-control", selected: params[:group_by] %>
+            </div>
+            <div class="col-auto">
+                <%= form.submit "Filter", class: "btn btn-primary" %>
+            </div>
+        <% end %>
+    </div>
+</div>
