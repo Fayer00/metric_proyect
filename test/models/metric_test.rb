@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'test_helper'
+require "rails_helper"
 
 class MetricTest < ActiveSupport::TestCase
   # test "the truth" do

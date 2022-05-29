@@ -1,21 +1,19 @@
 # frozen_string_literal: true
 
-# Model
+# Metric Model
 class Metric < ApplicationRecord
   validates :name, presence: true
   validates :value, presence: true
+  validates :timestamp, presence: true
 
-  # @param [String] date
-  def self.parse_date(date)
-    date.to_datetime
-  end
-
-  # @param [String] from
-  # @param [String] to
+  # @param [DateTime] from
+  # @param [DateTime] to
   def self.range(from, to)
-    where(timestamp: parse_date(from)..parse_date(to))
+    where(timestamp: from..to)
   end
 
+  # @param [DateTime] from
+  # @param [DateTime] to
   def self.calculate(from, to)
     if from.present? && to.present?
       range(from, to)

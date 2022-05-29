@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
-# Metrics
+# MetricsController simple CRUD
 class MetricsController < ApplicationController
   def index
-    puts params
-    metrics = Metric.calculate(params[:from], params[:to])
+    from = params[:from].present? ?  params[:from].to_datetime : ''
+    to = params[:to].present? ?  params[:to].to_datetime : ''
+    metrics = Metric.calculate(from, to)
     @metrics = metrics.group(:name).send("group_by_#{resolve_grouping}".to_sym, :timestamp).average(:value)
   end
 
