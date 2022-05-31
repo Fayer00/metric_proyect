@@ -12,7 +12,7 @@ names = %w[Chile Alemania Mexico España Argentina Colombia Japon Corea Canada]
 500.times do
   attrs = {
     timestamp: DateTime.now - (rand * 21),
-    value: rand(6000),
+    value: rand(500),
     name: names.sample
   }
 

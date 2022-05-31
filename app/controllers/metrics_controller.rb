@@ -22,7 +22,7 @@ class MetricsController < ApplicationController
     if @metric.save
       redirect_to metrics_path
     else
-      render :new, status: :unprocessable_entity
+      render :new
     end
   end
 
