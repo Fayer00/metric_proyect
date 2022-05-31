@@ -25,7 +25,7 @@
                 <%= form.label :group_by %>
             </div>
             <div class="col-auto">
-                <%= form.select :group_by, [["Minutes", "minute"], ["Hours", "hour"], ["Days", "day"]], class: "form-control", selected: params[:group_by] %>
+                <%= form.select :group_by, [["Days", "day"], ["Hours", "hour"], ["Minutes", "minute"] ], class: "form-control", selected: params[:group_by] %>
             </div>
             <div class="col-auto">
                 <%= form.submit "Filter", class: "btn btn-primary" %>
